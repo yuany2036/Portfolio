@@ -1,0 +1,111 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: $secondary-color;
+}
+header {
+    display: flex;
+    background-color: $header-color;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    #logo {
+        width: 15vw;
+        @include flex-centering;
+        flex-direction: column;
+        h2 {
+            color: $primary-color;
+            font-family: $logo-font;
+            margin-bottom: -10px;
+        }
+        h3 {
+            color: $tertiary-color;
+        }
+        h4 {
+            color: $primary-color;
+            font-family: $primary-font;
+        }
+    }
+    nav {
+        width: 100%;
+        ul {
+            height: 100%;
+            @include flex-centering;
+            justify-content: flex-end;
+            a {
+                margin: 0 2vw 0 2vw;
+                li {
+                    padding: 0.5rem;
+                    color: $primary-color;
+                }
+                &::after {
+                    content: "";
+                    width: 0;
+                    height: 2px;
+                    background-color: $tertiary-color;
+                    display: block;
+                    border-radius: 2px;
+                    position: relative;
+                    left: 50%;
+                    transition: 0.4s ease;
+                }
+                &:hover::after {
+                    width: 100%;
+                    left: 0;
+                }
+                &:hover li {
+                    color: $tertiary-color;
+                    // text-transform: capitalize;
+                    span {
+                        text-transform: none;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+main {
+    padding-left: 20vw;
+    padding-right: 20vw;
+    section {
+        padding-top: 10vh;
+        // height: 100vh;
+        h2 {
+            color: $primary-color;
+        }
+    }
+}
+
+#skills_container {
+    // @include flex-centering;
+    display: grid;
+    grid-template: auto 1fr / repeat(5, 1fr);
+    .skills_icon {
+        @include flex-centering;
+        flex-direction: column;
+        i {
+            color: $primary-color;
+            margin: 70px 0 20px 0;
+            font-size: 5rem;
+            &:hover {
+                color: $tertiary-color;
+                cursor: pointer;
+            }
+
+        }
+        p {
+            color: $tertiary-color;
+        }
+    }
+}
+
+footer {
+    background-color: $primary-color;
+}
